@@ -12,4 +12,9 @@ export class GithubService {
     constructor(private _http:Http) {
         console.log('Github service init...');
     }
+
+    getUser() {
+        return this._http.get('https://api.github.com/users/' + this.username)
+            .map(res => res.json());
+    }
 }
