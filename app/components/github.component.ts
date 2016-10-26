@@ -11,9 +11,14 @@ export class GithubComponent {
 
     user: any;
     repos: any;
+    username: string;
 
     constructor(private _githubService: GithubService) {
         console.log('Github component init...');
+    }
+
+    search() {
+        this._githubService.updateUsername(this.username);
 
         this._githubService.getUser().subscribe(user => {
             // console.log(user);
